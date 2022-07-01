@@ -81,55 +81,59 @@
 </head>
 
 <body>
+    <!--검색된 타임라인 출력-->
     <div class="container mt-5 mb-5">
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <!--<h4>timeline</h4>-->
                 <ul class="Timeline">
                     <% for (var i=0; i<timeline.length; i++){ %>
-                        <!--가져온 타임라인들에 대해서-->
-                        <li>
-                            <% if(timeline[i].hasOwnProperty('retweeted_status')) { %>
-                                <!--내가 다른사람 글을 리트윗한거면 원글을 쓴 사람 닉네임 출력-->
-                                <a style="font-weight: bold;" target="_blank" href=>
-                                    <%= timeline[i].retweeted_status.user.name %>
-                                </a>
-                                <% } else { %>
-                                    <!--아니면 내 닉네임-->
+                        <!--받아온 타임라인 수 만큼 반복-->
+                        <% if((timeline[i].text).indexOf(keyword) !=-1) { %>
+                            <!--현재 글에 검색 키워드가 존재하면 그 글을 보여줌-->
+                            <li>
+
+                                <% if(timeline[i].hasOwnProperty('retweeted_status')) { %>
+                                    <!--내가 다른사람 글을 리트윗한거면 원글을 쓴 사람 닉네임 출력-->
                                     <a style="font-weight: bold;" target="_blank" href=>
-                                        <%= timeline[i].user.name %>
+                                        <%= timeline[i].retweeted_status.user.name %>
                                     </a>
-                                    <% } %>
-
-                                        <a href="#" class="float-right">
-                                            <%= timeline[i].created_at %>
+                                    <% } else { %>
+                                        <!--아니면 내 닉네임-->
+                                        <a style="font-weight: bold;" target="_blank" href=>
+                                            <%= timeline[i].user.name %>
                                         </a>
-                                        <!--글이 써진 날짜-->
+                                        <% } %>
 
-                                        <p>
-                                            <%=timeline[i].text%>
-                                        </p>
-                                        <!--그 글 내용 출력-->
+                                            <a href="#" class="float-right">
+                                                <%= timeline[i].created_at %>
+                                            </a>
 
-                                        <% if(timeline[i].hasOwnProperty('extended_entities')) { %>
-                                            <!--미디어가 존재하면 출력-->
-                                            <img alt="Web Studio" class="img-fluid" width="300" height="300"
-                                                src=<%=timeline[i].extended_entities.media[0].media_url_https %> />
-                                            <% } %>
+                                            <p>
+                                                <%=timeline[i].text%>
+                                            </p>
 
-                                                <p style="color: #22c0e8;">리트윗: <%= timeline[i].retweet_count %> 마음에
-                                                        들어요: <%= timeline[i].favorite_count%>
-                                                </p>
+                                            <% if(timeline[i].hasOwnProperty('extended_entities')) { %>
+                                                <!--미디어가 존재하면 출력-->
+                                                <img alt="Web Studio" class="img-fluid" width="300" height="300"
+                                                    src=<%=timeline[i].extended_entities.media[0].media_url_https %> />
+                                                <% } %>
 
+                                                    <p style="color: #22c0e8;">리트윗: <%= timeline[i].retweet_count %> 마음에
+                                                            들어요: <%= timeline[i].favorite_count%>
+                                                    </p>
 
-                        </li>
-                        <% } %>
+                            </li>
+                            <% } %>
+                                <% } %>
 
                 </ul>
             </div>
         </div>
     </div>
 
+    <div class="text-muted mt-5 mb-5 text-center small">by : <a class="text-muted" target="_blank"
+            href="http://totoprayogo.com">totoprayogo.com</a></div>
 
 
 </body>

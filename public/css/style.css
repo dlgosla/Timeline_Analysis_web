@@ -919,7 +919,7 @@ html {
 	min-width: 216px;
   }
   
-  .s130 form .inner-form .input-field.second-wrap .btn-search {
+  .s130 form .inner-form .input-field.second-wrap .btn-search{
 	height: 100%;
 	width: 100%;
 	white-space: nowrap;
@@ -934,11 +934,11 @@ html {
 	font-weight: 300;
   }
   
-  .s130 form .inner-form .input-field.second-wrap .btn-search:hover {
+  .s130 form .inner-form .input-field.second-wrap .btn-search:hover{
 	background: #4782cf;
   }
   
-  .s130 form .inner-form .input-field.second-wrap .btn-search:focus {
+  .s130 form .inner-form .input-field.second-wrap .btn-search:focus{
 	outline: 0;
 	box-shadow: none;
   }
@@ -974,7 +974,7 @@ html {
 	.s130 form .inner-form .input-field.second-wrap {
 	  min-width: 100px;
 	}
-	.s130 form .inner-form .input-field.second-wrap .btn-search {
+	.s130 form .inner-form .input-field.second-wrap .btn-search{
 	  font-size: 13px;
 	}
   }

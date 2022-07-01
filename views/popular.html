@@ -6,15 +6,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
 
-    <div style="padding-left: 500px;">
-        <input id="search1" name="q" type="text" size="40" placeholder="Search..." />
-        <button class="btn-search" type="button" onclick="movePage1()">검색</button>
-        <script type="text/javascript">
-            function movePage1() { //페이지 이동을 위한 함수 search버튼을 누르면 실행됨
-                location.href = document.location.href + "/" + document.getElementById('search1').value //url을 이렇게 변경함
-            }
-        </script>
-    </div>
+
     <style>
         #search input[type="text"] {
             background: url(search-white.png) no-repeat 10px 6px #fcfcfc;
@@ -80,15 +72,19 @@
     </style>
 </head>
 
+
 <body>
+    <!--핫한 글들 출력-->
     <div class="container mt-5 mb-5">
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <!--<h4>timeline</h4>-->
+                <h4 style="color:rgb(46, 7, 7); font-weight: bold;">HOT</h4>
                 <ul class="Timeline">
                     <% for (var i=0; i<timeline.length; i++){ %>
-                        <!--가져온 타임라인들에 대해서-->
                         <li>
+                            <h5 style="color: gold; font-weight: bold;">
+                                <%= i + 1 %>위!
+                            </h5>
                             <% if(timeline[i].hasOwnProperty('retweeted_status')) { %>
                                 <!--내가 다른사람 글을 리트윗한거면 원글을 쓴 사람 닉네임 출력-->
                                 <a style="font-weight: bold;" target="_blank" href=>
@@ -104,12 +100,10 @@
                                         <a href="#" class="float-right">
                                             <%= timeline[i].created_at %>
                                         </a>
-                                        <!--글이 써진 날짜-->
 
                                         <p>
                                             <%=timeline[i].text%>
                                         </p>
-                                        <!--그 글 내용 출력-->
 
                                         <% if(timeline[i].hasOwnProperty('extended_entities')) { %>
                                             <!--미디어가 존재하면 출력-->
@@ -120,8 +114,6 @@
                                                 <p style="color: #22c0e8;">리트윗: <%= timeline[i].retweet_count %> 마음에
                                                         들어요: <%= timeline[i].favorite_count%>
                                                 </p>
-
-
                         </li>
                         <% } %>
 
@@ -129,7 +121,6 @@
             </div>
         </div>
     </div>
-
 
 
 </body>
