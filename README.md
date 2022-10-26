@@ -4,7 +4,7 @@
 <img src="images/main.png">
 
   
-http://www.twitter-analyze.ml:3000/   
+http://www.twitter-analyze.ml   
 서버가 켜져있다면 위의 url으로 접속할 수도 있습니다.  
   
 
